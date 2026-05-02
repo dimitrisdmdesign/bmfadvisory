@@ -1,309 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BMF Advisory & Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMF Advisory & Lab</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    body {
-      background: #000;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 22px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-    }
+/* NAV */
 
-    .logo {
-      font-size: 16px;
-      letter-spacing: 6px;
-      font-weight: 300;
-      text-transform: uppercase;
-    }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
+/* LOGO */
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
+.logo-frame {
+  border: 1px solid #fff;
+  padding: 10px 16px;
+  text-align: center;
+}
 
-    .nav-links a:hover {
-      opacity: 1;
-    }
+.logo-main {
+  font-size: 16px;
+  letter-spacing: 6px;
+  font-weight: 300;
+  line-height: 1;
+}
 
-    section {
-      padding: 120px 10%;
-    }
+.logo-line {
+  height: 1px;
+  background: #fff;
+  margin: 8px 0;
+  opacity: 0.8;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 160px;
-    }
+.logo-sub {
+  font-size: 7px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
 
-    .hero h1 {
-      font-size: 52px;
-      font-weight: 300;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
 
-    .hero h2 {
-      font-size: 22px;
-      font-weight: 300;
-      letter-spacing: 2px;
-      margin-bottom: 28px;
-      color: #ccc;
-    }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
 
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: #aaa;
-      font-size: 17px;
-    }
+.nav-links a:hover {
+  opacity: 1;
+}
 
-    .section-title {
-      font-size: 34px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
+/* HERO */
 
-    .text-block {
-      max-width: 850px;
-      color: #cfcfcf;
-      font-size: 17px;
-    }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 190px 20px 80px;
+}
 
-    .text-block p {
-      margin-bottom: 22px;
-    }
+.hero-logo {
+  margin-bottom: 55px;
+}
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 34px;
-      max-width: 1000px;
-    }
+.hero .logo-frame {
+  padding: 34px 44px;
+  display: inline-block;
+}
 
-    .service {
-      border-top: 1px solid #333;
-      padding-top: 22px;
-    }
+.hero .logo-main {
+  font-size: 50px;
+  letter-spacing: 10px;
+}
 
-    .service h3 {
-      font-size: 18px;
-      font-weight: 400;
-      margin-bottom: 12px;
-    }
+.hero .logo-line {
+  margin: 20px 0;
+}
 
-    .service p {
-      color: #aaa;
-      font-size: 15px;
-    }
+.hero .logo-sub {
+  font-size: 14px;
+  letter-spacing: 6px;
+}
 
-    .projects p,
-    .contact p {
-      color: #bbb;
-      font-size: 17px;
-      max-width: 700px;
-    }
+.hero h1 {
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
 
-    .email {
-      display: inline-block;
-      margin-top: 25px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      border-bottom: 1px solid #fff;
-      padding-bottom: 5px;
-    }
+.hero h2 {
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #ccc;
+  margin-bottom: 22px;
+}
 
-    footer {
-      padding: 50px 10%;
-      border-top: 1px solid #222;
-      color: #777;
-      font-size: 13px;
-      letter-spacing: 1px;
-      display: flex;
-      justify-content: space-between;
-    }
+.hero p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #aaa;
+  font-size: 17px;
+}
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 16px;
-        padding: 18px;
-      }
+/* SECTIONS */
 
-      .nav-links {
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+section {
+  padding: 120px 10%;
+}
 
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
+.section-title {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+}
 
-      .hero h1 {
-        font-size: 34px;
-      }
+.text {
+  max-width: 850px;
+  color: #ccc;
+  font-size: 17px;
+}
 
-      footer {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+.text p {
+  margin-bottom: 22px;
+}
+
+/* SERVICES */
+
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  max-width: 1000px;
+}
+
+.service {
+  border-top: 1px solid #333;
+  padding-top: 18px;
+}
+
+.service h3 {
+  font-size: 17px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 15px;
+  color: #aaa;
+}
+
+/* CONTACT */
+
+#projects p,
+#contact p {
+  color: #bbb;
+  font-size: 17px;
+}
+
+.email {
+  margin-top: 22px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 4px;
+  font-size: 17px;
+}
+
+.address {
+  margin-top: 35px;
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.address strong {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #222;
+  padding: 45px 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+  nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 14px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 230px;
+  }
+
+  .hero .logo-frame {
+    padding: 28px 28px;
+  }
+
+  .hero .logo-main {
+    font-size: 34px;
+    letter-spacing: 7px;
+  }
+
+  .hero .logo-sub {
+    font-size: 10px;
+    letter-spacing: 4px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  section {
+    padding: 95px 7%;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">BMF</div>
+<nav>
+  <div class="logo-frame">
+    <div class="logo-main">B M F</div>
+    <div class="logo-line"></div>
+    <div class="logo-sub">ADVISORY & LAB</div>
+  </div>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#services">SERVICES</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-logo">
+      <div class="logo-frame">
+        <div class="logo-main">B M F</div>
+        <div class="logo-line"></div>
+        <div class="logo-sub">ADVISORY & LAB</div>
+      </div>
     </div>
-  </nav>
 
-  <section class="hero">
-    <div>
-      <h1>BMF Advisory & Lab</h1>
-      <h2>Where Ideas Become Assets</h2>
-      <p>
-        We shape ideas, spaces and properties into structured, high-value outcomes.
-      </p>
+    <h1>BMF Advisory & Lab</h1>
+    <h2>Where Ideas Become Assets</h2>
+
+    <p>
+      We shape ideas, spaces and properties into structured, high-value outcomes.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">ABOUT</div>
+
+  <div class="text">
+    <p>
+      BMF Advisory & Lab is a multidisciplinary design and advisory studio operating
+      at the intersection of real estate, architecture and strategic development.
+    </p>
+
+    <p>
+      We collaborate with investors, developers and private clients to transform
+      initial ideas into tangible, buildable and market-ready assets.
+    </p>
+
+    <p>
+      Our approach combines spatial design, financial awareness and visual clarity —
+      ensuring that every concept is not only compelling, but also viable.
+    </p>
+
+    <p>
+      From early-stage vision to final presentation, we focus on precision,
+      simplicity and impact.
+    </p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">SERVICES</div>
+
+  <div class="services">
+
+    <div class="service">
+      <h3>Real Estate Advisory</h3>
+      <p>Strategic positioning, concept direction and value optimization of properties and developments.</p>
     </div>
-  </section>
 
-  <section id="about">
-    <h2 class="section-title">About</h2>
-
-    <div class="text-block">
-      <p>
-        BMF Advisory & Lab is a multidisciplinary design and advisory studio operating
-        at the intersection of real estate, architecture and strategic development.
-      </p>
-
-      <p>
-        We collaborate with investors, developers and private clients to transform
-        initial ideas into tangible, buildable and market-ready assets.
-      </p>
-
-      <p>
-        Our approach combines spatial design, financial awareness and visual clarity —
-        ensuring that every concept is not only compelling, but also viable.
-      </p>
-
-      <p>
-        From early-stage vision to final presentation, we focus on precision,
-        simplicity and impact.
-      </p>
+    <div class="service">
+      <h3>Concept Development</h3>
+      <p>Creation of strong, clear design narratives that guide each project from idea to execution.</p>
     </div>
-  </section>
 
-  <section id="services">
-    <h2 class="section-title">Services</h2>
-
-    <div class="services-grid">
-
-      <div class="service">
-        <h3>Real Estate Advisory</h3>
-        <p>Strategic positioning and value optimization of properties and developments.</p>
-      </div>
-
-      <div class="service">
-        <h3>Concept Development</h3>
-        <p>Creation of clear design narratives from idea to execution.</p>
-      </div>
-
-      <div class="service">
-        <h3>Architectural & Interior Design</h3>
-        <p>Contemporary spatial design focused on materiality and proportion.</p>
-      </div>
-
-      <div class="service">
-        <h3>Property Repositioning</h3>
-        <p>Transforming existing assets into higher-value opportunities.</p>
-      </div>
-
-      <div class="service">
-        <h3>3D Visualisation & CGI</h3>
-        <p>High-end imagery for presentations and investor communication.</p>
-      </div>
-
-      <div class="service">
-        <h3>Brand & Presentation</h3>
-        <p>Identity and visual storytelling for each project.</p>
-      </div>
-
-      <div class="service">
-        <h3>Production & Spatial Design</h3>
-        <p>Design of environments and concept-driven installations.</p>
-      </div>
-
+    <div class="service">
+      <h3>Architectural & Interior Design</h3>
+      <p>Spatial design with emphasis on proportion, materiality and contemporary living.</p>
     </div>
-  </section>
 
-  <section id="projects" class="projects">
-    <h2 class="section-title">Projects</h2>
-    <p>A curated selection of residential, commercial and conceptual work.</p>
-    <p style="margin-top:20px;">Coming soon.</p>
-  </section>
+    <div class="service">
+      <h3>Property Repositioning</h3>
+      <p>Transformation of existing assets into higher-value opportunities through design and strategy.</p>
+    </div>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>For inquiries and collaborations:</p>
+    <div class="service">
+      <h3>3D Visualisation & CGI</h3>
+      <p>High-end photorealistic imagery for presentations, sales and investor communication.</p>
+    </div>
 
-    <a class="email" href="mailto:dimitrisdmdesign@gmail.com">
-      dimitrisdmdesign@gmail.com
-    </a>
-  </section>
+    <div class="service">
+      <h3>Brand & Presentation Material</h3>
+      <p>Development of identity, brochures and visual storytelling tailored for each project.</p>
+    </div>
 
-  <footer>
-    <div>BMF Advisory & Lab</div>
-    <div>Athens — Cyprus — International</div>
-  </footer>
+    <div class="service">
+      <h3>Production & Spatial Design</h3>
+      <p>Design of commercial spaces, environments and concept-driven installations.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-title">PROJECTS</div>
+
+  <p>
+    A curated selection of residential, commercial and conceptual work.
+  </p>
+
+  <p style="margin-top:20px;">
+    Coming soon.
+  </p>
+</section>
+
+<section id="contact">
+  <div class="section-title">CONTACT</div>
+
+  <p>For inquiries, collaborations or project discussions:</p>
+
+  <a class="email" href="mailto:dimitrisdmdesign@gmail.com">
+    dimitrisdmdesign@gmail.com
+  </a>
+
+  <div class="address">
+    <strong>Head Office</strong><br>
+    82, Arch. Makariou III<br>
+    Gabriel Building, Floor 3<br>
+    Apartment / Office 302<br>
+    1077 Nicosia, Cyprus
+  </div>
+</section>
+
+<footer>
+  <div>BMF Advisory & Lab</div>
+  <div>Athens — Cyprus — International</div>
+</footer>
 
 </body>
 </html>
